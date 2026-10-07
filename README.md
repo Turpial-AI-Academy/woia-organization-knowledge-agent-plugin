@@ -40,3 +40,9 @@ mise run ci:fast
 mise run ci:extended
 mise run release:check
 ~~~
+
+## W1 provider implementation
+
+Versioned SOP/FAQ/template/manual/criteria/policy corpus only; no business state. Proposals are never published facts. Owner-approved publication/archive preserves previous immutable versions. People resolves guidance by reference, not copying corpus.
+
+[Portable operation contract](skills/woia-organization-knowledge/references/contract.md). Import execute/initial from skills/woia-organization-knowledge/scripts/provider.mjs. No backend or live adapter is qualified. Public fixtures are synthetic; authenticated host must resolve current policies and persist transitions atomically with revision fencing.
