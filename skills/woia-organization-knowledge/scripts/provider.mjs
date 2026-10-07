@@ -2,7 +2,7 @@ import {begin,finish,requireValue,ownKeys,approval,digest} from './guard.mjs';
 export const actions=["knowledge.search","knowledge.read","knowledge.list","knowledge.version.read","knowledge.propose-change","knowledge.publish-approved","knowledge.archive-approved"];
 const writes=actions.filter(a=>!["knowledge.search","knowledge.read","knowledge.list","knowledge.version.read"].includes(a));
 export const initial=organization=>({organization,revision:0,operations:{},history:[],corpus:{}});
-export function execute(state,q){const c=begin(state,q,actions,writes);if(c.replay)return {state:c.next,result:c.replay};
+export function execute(state,q){q=structuredClone(q);const c=begin(state,q,actions,writes);if(['knowledge.publish-approved','knowledge.archive-approved'].includes(q.action)){requireValue(state.corpus?.[q.target]?.owner===q.authority.owner,'OWNER_AUTHORITY');approval(q);}  if(c.replay)return {state:c.next,result:c.replay};
  const corpus=c.next.corpus??={};const r=corpus[q.target];
  if(['knowledge.list','knowledge.search'].includes(q.action))return finish(c,q,Object.values(corpus).filter(x=>q.authority.resources.includes(x.id)&&x.published&&!x.archived&&(!q.payload?.query||x.versions[x.published].content.includes(q.payload.query))).map(x=>({id:x.id,version:x.published})));
  if(['knowledge.read','knowledge.version.read'].includes(q.action)){requireValue(r,'KNOWLEDGE_NOT_FOUND');requireValue(q.action==='knowledge.version.read'||!r.archived,'ARCHIVED');const version=q.action==='knowledge.version.read'?q.payload?.version:r.published;requireValue(version&&r.versions[version]&&r.versions[version].status==='published','NOT_PUBLISHED');return finish(c,q,structuredClone(r.versions[version]))}
