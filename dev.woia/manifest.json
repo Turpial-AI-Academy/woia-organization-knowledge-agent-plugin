@@ -1,0 +1,22 @@
+{
+  "schema": "dev.woia.provider-manifest/v1",
+  "name": "woia-organization-knowledge",
+  "capability": "organization-knowledge",
+  "version": "0.5.0",
+  "origin": "native",
+  "authoring_profile": "thin",
+  "actions": [
+    "knowledge.search",
+    "knowledge.read",
+    "knowledge.list",
+    "knowledge.version.read",
+    "knowledge.propose-change",
+    "knowledge.publish-approved",
+    "knowledge.archive-approved"
+  ],
+  "support": {
+    "deterministic_contract": "implemented",
+    "storage_adapter": "NOT_QUALIFIED",
+    "external_effects": "unsupported"
+  }
+}
