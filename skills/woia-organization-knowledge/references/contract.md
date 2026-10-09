@@ -1,6 +1,5 @@
 # woia-organization-knowledge operation contract
 
-Sources: Real Estate ADR-0026, ADR-0027, ADR-0029, ADR-0030; docs21/22/24/25 at eb0a7278188b2f9968e21ed4299f08184d864cac.
 
 Versioned SOP/FAQ/template/manual/criteria/policy corpus only; no business state. Proposals are never published facts. Owner-approved publication/archive preserves previous immutable versions. People resolves guidance by reference, not copying corpus.
 
