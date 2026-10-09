@@ -15,7 +15,6 @@ The plugin adapts to the repository it operates on without requiring the consume
 ~~~text
 plugin.json
 README.md
-CHANGELOG.md
 LICENSE
 skills/**
 # optional source diagnostic when retained by the repository
@@ -41,7 +40,7 @@ mise run ci:extended
 mise run release:check
 ~~~
 
-## W1 provider implementation
+## provider implementation
 
 Versioned SOP/FAQ/template/manual/criteria/policy corpus only; no business state. Proposals are never published facts. Owner-approved publication/archive preserves previous immutable versions. People resolves guidance by reference, not copying corpus.
 
